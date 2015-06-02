@@ -1,0 +1,30 @@
+
+<div class='jubotron'>
+	<h1> Here is Your To-Do list--now DO IT!</h1>
+</div>	
+
+<p><h2 class='lead'>First, here are all of your tasks you gotta handle:</h2></p>
+
+
+<div>
+<ul>
+	<% @tasks.each  do |task| %>
+	<li><%= task.description %></li>
+	<% end %>	
+</ul>
+</div>
+
+
+<p>Create a New Task:</p>
+
+
+
+
+<form action-'/tasks' method='post'>
+	<div class='form-group'>
+		<label for='description'>Task Description</label>
+		<input id='description' name='description' type='text'>
+	</div>	
+
+	<button type='submit' class='btn btn-success'>Git 'Er Done!</button>
+</form>		
