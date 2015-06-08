@@ -1,4 +1,4 @@
-require('rspec'
+require('rspec')
 require('pg')
 require('list')
 require('task')

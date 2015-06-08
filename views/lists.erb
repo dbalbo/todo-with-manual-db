@@ -1,0 +1,15 @@
+<div class="lead">
+  <h1> Here are all of your Current Lists</h1>
+
+  <% if @lists.any? %>
+    <h3> Here are Your Lists:</h3>
+
+    <ul>
+      <% @lists.each do |list| %>
+        <li><a href='/lists/<%= list.id %>'><%= list.description %></a></li>
+      <% end %>
+    </ul>
+
+    <% else %>
+          <p><h2> There are no lists yet!</h2></p>
+    <% end %>
