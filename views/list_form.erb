@@ -1,11 +1,13 @@
 
+<div class="container">
 
+<h2> Add A New List</h2>
 
-<form action='/lists/new' method='post'>
-  <div class='form-group'>
-    <label for='description'>Task Description</label>
-    <input id='description' name='description' type='text'>
-  </div>
-
-  <button type='submit' class='btn btn-success'>Git 'Er Done!</button>
-</form>
+  <form action='/lists' method='post'>
+    <div class='form-group'>
+      <label for='description'>Assign a Name to Your List:</label>
+      <input id='description' name='description' type='text' placeholder="List Name" autofocus>
+      </div>
+    <button type='submit' class='btn btn-success'>Get 'Er Done!</button>
+  </form>
+</div>
