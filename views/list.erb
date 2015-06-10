@@ -1,0 +1,33 @@
+<div class="container">
+	<h1><%= Add a Task to <%= @list.description %></h1>
+
+	<form action='/tasks' method='post'>
+		<input id='list_id' name='list_id' type='hidden' value='<%= @list.id %>'>
+		<label for="description"> Description of the task</label>
+		<input id='description' name='description' type='text'>
+
+		<button type='submit btn-success'>Add Task</button>
+	</form>	
+
+	<% if @list.tasks.any? %>
+	<h3>Here are the tasks in this List: %></h3>
+
+	<ul>
+		<% @list.tasks.each do |task| %>
+			<li><%= task.description %></li>
+		<% end %>
+	</ul>
+
+	<% else %>
+		<p><h5> There are no tasks in this list</h5></p>
+	<% end %>
+</div>	
+
+	<br>
+
+<div class="container">
+	<a href='/'> Home</a>
+	<a href='/lists'>View All Lists</a>
+	<a href='lists/new'>Add New Lists</a>
+	<a href='/lists/new'> Add New Task</a>
+</div>	

@@ -12,18 +12,18 @@ describe('adding a new list', {:type => :feature}) do
     expect(page).to have_content('Success!')
   end
 end
- describe('viewing all of the lists', {:type = :feature}) do
+ describe('viewing all of the lists', {:type =>:feature}) do
    it('allows a user to see all of the lists that have been created') do
-     list = List.new({:description => 'Epicodus homeowrk'})
+     list = List.new({:description => 'Epicodus Homework'})
      list.save
      visit('/')
      click_button("View All Lists")
      expect(page).to have_content(list.description)
    end
  end
- describe('seeing details for a single list', ({:type => :feature}) do
-   it('allows a user to click on a list and see the details for it') do
-     test_list = List.new({:description => 'school stuff'})
+ describe('seeing details for a single list', {:type => :feature}) do
+   it('allows a user to click on a list and see the tasks and details for it') do
+     test_list = List.new({:description => 'School stuff'})
      test_list.save
      test_task = Task.new({:description => 'learnSQL', :list_id => test_list.id})
      test_task.save
@@ -32,3 +32,14 @@ end
      expect(page).to have_content(test_task.decription)
    end
  end
+
+ describe("adding tasks to a list", {:type => :feature}) do
+  it('allows a user to add a task to a list') do
+    test_list = List.new({:name => "school stuff"})
+    test_list.save
+    visit('/lists/#{test_list.id}')
+    fill_in("description", {:with => "Learn SQL"})
+    click_link("Add Task")
+    expect(page).to have_content("Success!")
+  end
+end
